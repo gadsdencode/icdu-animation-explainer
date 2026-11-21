@@ -1,0 +1,29 @@
+Build a sleek, interactive web application using React, TypeScript, Tailwind CSS, and Framer Motion that visually explains the architecture and data flow of ICDU ("AI Guided by Intent" — an enterprise AI readiness and governance control plane).
+
+### Visual Aesthetic & Theme
+- **Style:** Modern enterprise AI infrastructure aesthetic (inspired by Linear, Stripe, and Vercel). Deep obsidian/slate dark background (`#090D16`), crisp glassmorphic nodes (`#111827` with subtle `1px` borders), luminous cyan/blue accents (`#38BDF8`) for active data flow, emerald (`#10B981`) for verified/approved states, and amber/crimson (`#F59E0B` / `#EF4444`) for readiness gate interventions.
+- **Typography:** Clean sans-serif (`Inter`) paired with monospace (`JetBrains Mono`) for JSON payloads, contract schemas, policy rules, and audit hashes.
+
+### Core Animation Architecture (The 5-Part Pipeline)
+Create a central, responsive SVG + HTML node canvas illustrating a data packet traveling from left to right across 5 connected stages:
+1. **Input Node — Raw Work Request:** An unstructured user prompt entering the system (e.g., *"Draft a clinical summary and coverage recommendation for Patient #4092"*).
+2. **Stage 1: DEFINE (Intent & Contract):** The unstructured prompt enters a prism/structuring node and transforms into a structured "Intent Contract" badge containing three animated sub-pills: `Goal`, `Context & Expertise`, and `Success Criteria`.
+3. **Stage 2: GATE (Readiness Control):** A high-precision security/policy checkpoint ring. It scans the Intent Contract against `Policy Boundaries`, `Data Permissions`, and `Compliance Rules`.
+   - *Pass State:* Ring pulses emerald; gate opens cleanly.
+   - *Blocked/Hold State:* Ring pulses crimson; packet pauses at the gate with a crisp diagnostic alert badge explaining why execution was prevented before wasting tokens or risking compliance.
+4. **Stage 3: EXECUTE (Bounded Model Call):** A model-agnostic execution chamber showing a wrapped API payload routing cleanly to an interchangeable model icon (e.g., `LLM Provider A / B`), returning a bounded response.
+5. **Stage 4: AUDIT (Evidence Pack):** The final node locks in an immutable, cryptographic-style "Reviewable Evidence Record" card displaying `Intent Hash`, `Gate Decision: PASS`, `Policy Version`, and `Human Review Ready`.
+
+### Interactive Controls & Storytelling Features
+Include a sleek floating control dock at the bottom or top of the canvas with:
+1. **Playback Controls:** Play/Pause toggle, Step Forward / Step Back buttons, and a speed selector (`1x`, `1.5x`).
+2. **Scenario Toggle (Crucial Feature):** A prominent segmented switch allowing the user to test two live flows:
+   - **Scenario A: Compliant Request (Happy Path)** — Flows smoothly through Define → Gate (Pass) → Execute → Audit.
+   - **Scenario B: Ungoverned / Missing Context Request** — Flows through Define, then triggers a dramatic **Gate Rejection** at Stage 2 (showing how ICDU stops unready or non-compliant requests *before* model execution, while still logging the decision to the Audit trail).
+3. **Live Inspector Drawer / Panel:** Below or beside the pipeline, show a synchronized live "Payload & Evidence Inspector" that morphs in real time as the glowing data packet reaches each node—transitioning from raw text → structured JSON Intent Contract → Gate Policy Checklist → Bounded Model Output → Final Audit Evidence Pack.
+4. **Comparison Toggle ("Without ICDU vs. With ICDU"):** Add a small toggle that briefly shows the chaotic "Before" state (raw prompt going straight to an LLM with no guardrails or audit trail) vs. the governed ICDU control plane.
+
+### Technical Polish
+- Use SVG `motion.path` with animated `strokeDashoffset` and glowing particle pulses traveling along curved Bezier connectors between nodes.
+- Ensure smooth spring physics (`type: "spring", stiffness: 260, damping: 24`) when nodes activate, expand, or transition states.
+- Make the layout fully responsive so it looks executive-ready on both desktop widescreen monitors and tablets, with zero overlapping labels or clipped SVGs.
