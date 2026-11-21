@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "ICDU — AI Guided by Intent"
+description = "An interactive architecture explorer demonstrating intent contracts, readiness gates, bounded model execution, and reviewable evidence through compliant and blocked AI request simulations."
+version = "1.0.0"
+id = "artifacts/icdu-explorer"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18137
+
+[services.development]
+run = "pnpm --filter @workspace/icdu-explorer run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/icdu-explorer", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/icdu-explorer/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18137"
+BASE_PATH = "/"

@@ -1,9 +1,10 @@
-# [Project name]
+# ICDU — AI Guided by Intent
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An interactive architecture explorer explaining enterprise AI readiness and governance through animated request simulations.
 
 ## Run & Operate
 
+- `pnpm --filter @workspace/icdu-explorer run dev` — run the explorer through its managed web workflow
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
@@ -26,11 +27,12 @@ _Populate as you build — short repo map plus pointers to the source-of-truth f
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The explorer is an educational, frontend-only simulation, not a real clinical decision system or production AI gateway. It does not call model providers or require a database.
+- Blocked requests must never enter model execution; their gate decisions still proceed to the illustrative audit evidence record.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+ICDU means "AI Guided by Intent" and is presented as an enterprise AI readiness and governance control plane. The explorer follows Input → Define → Gate → Execute → Audit, with compliant and missing-context scenarios, playback controls, a synchronized payload inspector, and a with/without-governance comparison.
 
 ## User preferences
 
